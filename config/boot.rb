@@ -38,6 +38,7 @@ I18n.default_locale = :zh_cn
 # Add your before (RE)load hooks here
 #
 Padrino.before_load do
+  Padrino.dependency_paths << Padrino.root('api/*.rb')
 end
 
 ##
