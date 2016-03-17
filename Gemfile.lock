@@ -1,3 +1,11 @@
+GIT
+  remote: git://github.com/adamluzsi/padrino-grape.git
+  revision: e1973a96425396db757947ab4ad1d8b88d4c5ceb
+  specs:
+    padrino-grape (1.1.0)
+      grape
+      padrino
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -137,6 +145,7 @@ DEPENDENCIES
   haml
   mysql2
   padrino (= 0.13.1)
+  padrino-grape!
   rack-test
   rake
   rspec

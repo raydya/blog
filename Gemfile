@@ -38,3 +38,4 @@ gem 'padrino', '0.13.1'
 #   gem 'padrino-' + g, '0.13.1'
 # end
 gem 'grape'
+gem 'padrino-grape', github: "adamluzsi/padrino-grape"
