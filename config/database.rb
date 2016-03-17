@@ -1,36 +1,3 @@
-##
-# You can use other adapters like:
-#
-#   ActiveRecord::Base.configurations[:development] = {
-#     :adapter   => 'mysql2',
-#     :encoding  => 'utf8',
-#     :reconnect => true,
-#     :database  => 'your_database',
-#     :pool      => 5,
-#     :username  => 'root',
-#     :password  => '',
-#     :host      => 'localhost',
-#     :socket    => '/tmp/mysql.sock'
-#   }
-#
-#ActiveRecord::Base.configurations[:development] = {
-#  :adapter => 'sqlite3',
-#  :database => Padrino.root('db', 'blog_development.db')
-#
-#}
-#
-#ActiveRecord::Base.configurations[:production] = {
-#  :adapter => 'sqlite3',
-#  :database => Padrino.root('db', 'blog_production.db')
-#
-#}
-#
-#ActiveRecord::Base.configurations[:test] = {
-#  :adapter => 'sqlite3',
-#  :database => Padrino.root('db', 'blog_test.db')
-#
-#}
-
 # Setup our logger
 ActiveRecord::Base.logger = logger
 
@@ -56,11 +23,8 @@ ActiveSupport.use_standard_json_time_format = true
 # if you're including raw JSON in an HTML page.
 ActiveSupport.escape_html_entities_in_json = false
 
-# Now we can establish connection with our db.
-ActiveRecord::Base.establish_connection(ActiveRecord::Base.configurations[Padrino.env])
-
 # Timestamps are in the utc by default.
 ActiveRecord::Base.default_timezone = :utc
 
 # Now we can establish connection with our db.
-ActiveRecord::Base.establish_connection YAML::load(File.open(File.expand_path("#{PADRINO_ROOT}/config", __FILE__) + '/database.yml'))[RACK_ENV]
+ActiveRecord::Base.establish_connection(YAML::load(File.open(File.expand_path("#{PADRINO_ROOT}/config", __FILE__) + '/database.yml'))[RACK_ENV])
