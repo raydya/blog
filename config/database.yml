@@ -1,0 +1,13 @@
+---
+development: &defaults
+  adapter: mysql
+  database: blog
+  username: root
+  password: 1234567
+  host: 127.0.0.1
+
+test:
+  <<: *defaults
+
+production:
+  <<: *defaults
